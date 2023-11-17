@@ -1,0 +1,79 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1; /* Celeste pastel más claro */
+    color: #333;
+}
+
+header {
+    background-color: #3498db; /* Azul claro */
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em; /* Tamaño original: 2.5em */
+    color: #333; 
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #3498db; /* Azul claro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em; /* Tamaño de letra reducido */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.post-preview {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 1.8em; /* Tamaño de letra reducido */
+    margin-bottom: 15px;
+    color: #2980b9; /* Azul más oscuro */
+}
+
+.post-date {
+    color: #555;
+    font-size: 0.8em;
+}
+
+.admin-link {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.3em; /* Tamaño de letra reducido */
+    color: #333;
+}
+
+.admin-link a {
+    color: #3498db;
+    font-weight: bold;
+}

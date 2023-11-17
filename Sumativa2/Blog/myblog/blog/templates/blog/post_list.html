@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/styles.css' %}">
+    <meta name="description" content="Mi Blog - Un blog hecho con Django">
+    <meta name="keywords" content="blog, Django, desarrollo web">
+    <title>{% block title %}Lista de Publicaciones{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Mi Blog</h1>
+        <p>Un blog hecho con Django</p>
+    </header>
+
+    <div class="container">
+        <ul>
+            {% for post in posts %}
+                <li class="post-preview">
+                    <h2 class="post-title">
+                        <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+                    </h2>
+                    <p class="post-content">{{ post.content|truncatewords:30 }}</p>
+                    <p class="post-date">{{ post.pub_date|date:"d F Y" }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% block content %}{% endblock %}
+
+        <div class="admin-link">
+            <a class="admin-link-btn" href="{% url 'admin:index' %}">Acceder al Administrador</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Mi Blog. Savka666.</p>
+    </footer>
+</body>
+</html>

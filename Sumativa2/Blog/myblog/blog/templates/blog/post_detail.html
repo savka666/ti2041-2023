@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/styles.css' %}">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ post.title }}</h1>
+    </header>
+
+    <div class="container">
+        <article>
+            <p>{{ post.content }}</p>
+            <div class="meta-info">
+                <p class="author-info">Publicado por: {{ post.author.username }}</p>
+                <p class="tags">Categoría: 
+                    {% if post.category %}
+                        <a href="{% url 'blog:category_posts' post.category.id %}">{{ post.category.name }}</a>
+                    {% else %}
+                        Sin categoría
+                    {% endif %}
+                </p>
+                <p class="tags">Etiquetas: 
+                    {% for tag in post.tags.all %}
+                        <a href="{% url 'blog:tag_posts' tag.id %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </article>
+
+        <a href="{% url 'blog:post_list' %}" class="back-link">Volver a la lista de publicaciones</a>
+    </div>
+</body>
+</html>
